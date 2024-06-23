@@ -1,8 +1,14 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.headerLink {
+  text-decoration: none;
+  color: #333;
 }
