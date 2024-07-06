@@ -8,11 +8,11 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerComponent}>
         <Link className={styles.headerLink} href="/">
-          <h1>Bookshelf</h1>
+          <span className={styles.logoText}>Bookshelf</span>
         </Link>
-        <div>
+        <div className={styles.headerComponentRight}>
           <span className={styles.icon}>
-            <PersonIcon />
+            <PersonIcon fontSize="large" />
           </span>
           <span className={styles.userName}>User Name</span>
         </div>

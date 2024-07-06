@@ -5,9 +5,11 @@ import { cardItems } from "./constants";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Search />
-      <CardList cards={cardItems} />
+    <main className={styles.mainContents}>
+      <div className={styles.contentsInner}>
+        <Search />
+        <CardList cards={cardItems} />
+      </div>
     </main>
   );
 }
