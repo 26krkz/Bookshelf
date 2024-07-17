@@ -1,5 +1,9 @@
 import { Button as MuiButton } from "@mui/material";
 
-export default function Button({ children }: { children: React.ReactNode }) {
-  return <MuiButton variant="contained">{children}</MuiButton>;
+export default function Button({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <MuiButton variant="contained" className={className}>
+      {children}
+    </MuiButton>
+  );
 }

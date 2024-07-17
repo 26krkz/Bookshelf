@@ -6,7 +6,7 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          width: 300,
+          width: 350,
         },
       },
     },
