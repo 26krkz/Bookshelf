@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function CardList(props: Props) {
-  const { open, handleOpenModal } = useModal();
+  const { open, handleOpenModal, handleCloseModal, modalInfo } = useModal();
   const { cards } = props;
   return (
     <>
@@ -18,12 +18,12 @@ export default function CardList(props: Props) {
         {cards.map((card) => {
           return (
             <li key={card.cardId}>
-              <Card {...card} onClick={handleOpenModal} />
+              <Card {...card} onClick={() => handleOpenModal(card)} />
             </li>
           );
         })}
       </ul>
-      <Modal open={open} handleOpenModal={handleOpenModal} />
+      <Modal open={open} handleCloseModal={handleCloseModal} modalInfo={modalInfo} />
     </>
   );
 }

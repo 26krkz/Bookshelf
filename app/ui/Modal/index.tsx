@@ -1,8 +1,8 @@
 "use client";
 import Typography from "@mui/material/Typography";
 import { Modal as MuiModal } from "@mui/material/";
-import { useModal } from "./useModal";
 import Box from "@mui/material/Box";
+import type { ModalInfo } from "@/app/types";
 
 const style = {
   position: "absolute" as "absolute",
@@ -16,16 +16,21 @@ const style = {
   p: 4,
 };
 
-export default function Modal({ open, handleOpenModal }: { open: boolean; handleOpenModal: () => void }) {
+export default function Modal({ open, handleCloseModal, modalInfo }: { open: boolean; handleCloseModal: () => void; modalInfo: ModalInfo }) {
+  if (!modalInfo) return;
+  const { title, author, description } = modalInfo;
   return (
     <div>
-      <MuiModal open={open} onClose={handleOpenModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <MuiModal open={open} onClose={handleCloseModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            {title}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            {author}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {description}
           </Typography>
         </Box>
       </MuiModal>
