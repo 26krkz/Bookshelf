@@ -3,28 +3,25 @@ import * as React from "react";
 import { Card as MuiCard } from "@mui/material/";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
-import CardActionArea from "@mui/material/CardActionArea";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import type { Card } from "@/app/types";
 
-export default function Card(props: Card) {
-  const { title, author, onClick } = props;
+export default function Card({ card }: { card: Card }) {
+  const { title, author } = card;
   return (
     <MuiCard>
-      <CardActionArea onClick={onClick}>
-        <div>
-          <p>{title}</p>
-          <p>{author}</p>
-        </div>
-        <CardMedia component="img" height="300" image="./dummy-image.jpeg" alt="本の画像" />
-      </CardActionArea>
-      <CardActions disableSpacing>
+      <div>
+        <p>{title}</p>
+        <p>{author}</p>
+      </div>
+      <CardMedia component="img" height="300" image="./dummy-image.jpeg" alt="本の画像" />
+      {/* <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-      </CardActions>
+      </CardActions> */}
+      {/* buttonの中にbuttonがある。useModalの中身を変更する */}
     </MuiCard>
   );
 }

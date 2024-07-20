@@ -7,9 +7,7 @@ export type BookInfo = {
   favorite: boolean;
 };
 
-export type Card = BookInfo & {
-  onClick?: () => void;
-};
+export type Card = BookInfo;
 
 export type Cards = Card[];
 
