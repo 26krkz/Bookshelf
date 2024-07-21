@@ -1,8 +1,9 @@
 "use client";
 import Card from "../Card";
-import Modal from "../Modal";
+import { ModalContainer } from "../ModalContainer";
 import type { Cards } from "@/app/types";
 import styles from "./styles.module.css";
+import { BookViewmodal } from "../BookViewModal";
 
 export default function CardList({ cards }: { cards: Cards }) {
   return (
@@ -11,9 +12,9 @@ export default function CardList({ cards }: { cards: Cards }) {
         {cards.map((card) => {
           return (
             <li key={card.cardId}>
-              <Modal card={card}>
+              <ModalContainer content={() => <BookViewmodal card={card} />}>
                 <Card card={card} />
-              </Modal>
+              </ModalContainer>
             </li>
           );
         })}
