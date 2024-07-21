@@ -10,5 +10,3 @@ export type BookInfo = {
 export type Card = BookInfo;
 
 export type Cards = Card[];
-
-export type ModalInfo = Omit<Card, "onClick"> | null;

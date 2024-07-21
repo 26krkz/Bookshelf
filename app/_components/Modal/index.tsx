@@ -18,20 +18,21 @@ const style = {
 };
 
 export default function Modal({ card, children }: { card: Card; children: React.ReactNode }) {
-  const { open, handleOpenModal, handleCloseModal, modalInfo } = useModal();
+  const { title, author, description } = card;
+  const { open, handleOpenModal, handleCloseModal } = useModal();
   return (
     <div>
-      <button onClick={() => handleOpenModal(card)}>{children}</button>
+      <button onClick={handleOpenModal}>{children}</button>
       <MuiModal open={open} onClose={handleCloseModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalInfo?.title}
+            {title}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {modalInfo?.author}
+            {author}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {modalInfo?.description}
+            {description}
           </Typography>
         </Box>
       </MuiModal>
