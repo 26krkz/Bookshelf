@@ -1,6 +1,5 @@
 "use client";
 import { ReactElement, ReactNode } from "react";
-import { Modal as MuiModal } from "@mui/material/";
 import { useModal } from "@/app/_hooks/useModal";
 
 export function ModalContainer({ content, children }: { content: (fn?: () => void) => ReactElement; children: ReactNode }) {
@@ -8,9 +7,10 @@ export function ModalContainer({ content, children }: { content: (fn?: () => voi
   return (
     <div>
       <button onClick={handleOpenModal}>{children}</button>
-      <MuiModal open={open} onClose={handleCloseModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      {/* radix-uiのモーダルを使う */}
+      {/* <MuiModal open={open} onClose={handleCloseModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         {content()}
-      </MuiModal>
+      </MuiModal> */}
     </div>
   );
 }
