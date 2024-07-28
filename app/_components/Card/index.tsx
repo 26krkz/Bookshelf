@@ -2,17 +2,18 @@
 import * as React from "react";
 import type { Card } from "@/app/types";
 import Image from "next/image";
+import { Card as RadixCard } from "@radix-ui/themes";
+import styles from "./styles.module.css";
 
 export default function Card({ card }: { card: Card }) {
-  const { title, author } = card;
+  // const { photoUrl } = card;
   return (
-    // radix-uiのカードコンポーネントを追加する
-    <div>
-      <div>
-        <p>{title}</p>
-        <p>{author}</p>
+    <RadixCard className={styles.card}>
+      <div className={styles.cardContainer}>
+        <div className={styles.imageWrapper}>
+          <Image src="/dummy-image.jpeg" fill alt="本の画像" className={styles.image} />
+        </div>
       </div>
-      <Image src="/dummy-image.jpeg" height="300" alt="本の画像" />
-    </div>
+    </RadixCard>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import PersonIcon from "@mui/icons-material/Person";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
         </Link>
         <div className={styles.headerComponentRight}>
           <span className={styles.icon}>
-            <PersonIcon fontSize="large" />
+            <PersonIcon className={styles.dummyIcon} />
           </span>
           <span className={styles.userName}>User Name</span>
         </div>

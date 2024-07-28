@@ -1,4 +1,5 @@
+import { Button as RadixButton } from "@radix-ui/themes";
+
 export default function Button({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <button className={className}>{children}</button>;
+  return <RadixButton className={className}>{children}</RadixButton>;
 }
-// radix-uiのbuttonを使う

@@ -1,20 +1,12 @@
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400;
-  border: 2px solid #ddd;
-  background-color: #fff;
-  box-shadow: 24;
-  padding: 30px;
   display: flex;
 }
 
 .imageWrapper {
   position: relative;
-  width: 200px;
+  width: 215px;
   height: 300px;
+  background-color: #ddd;
 }
 
 .image {
@@ -26,13 +18,6 @@
   margin-left: 20px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #333;
-}
-
 .author {
   font-size: 20px;
   font-weight: 500;
@@ -41,5 +26,5 @@
 }
 
 .description {
-  color: #333;
+  margin-bottom: 30px;
 }
