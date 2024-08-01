@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./reset.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme";
+import "@radix-ui/themes/styles.css";
 import Header from "./_components/Header";
+import { Theme } from "@radix-ui/themes";
 
 export const metadata: Metadata = {
   title: "Bookshelf",
@@ -18,14 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AppRouterCacheProvider>
-        <ThemeProvider theme={theme}>
-          <body>
-            <Header />
-            {children}
-          </body>
-        </ThemeProvider>
-      </AppRouterCacheProvider>
+      <body>
+        <Theme>
+          <Header />
+          {children}
+        </Theme>
+      </body>
     </html>
   );
 }
