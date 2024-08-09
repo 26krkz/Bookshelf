@@ -5,7 +5,7 @@ type Props = {
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
   size?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
   children: React.ReactNode;
-  className: string;
+  className?: string;
 };
 
 export default function Heading({ as, size, children, className }: Props) {

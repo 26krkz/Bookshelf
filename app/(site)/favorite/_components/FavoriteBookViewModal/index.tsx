@@ -2,8 +2,9 @@ import { Card } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
+import Button from "@/_components/Button";
 
-export const BookViewModal = ({ card }: { card: Card }) => {
+export const FavoriteBookViewModal = ({ card }: { card: Card }) => {
   const { title, author, description } = card;
   return (
     <Dialog.Content>
@@ -15,6 +16,7 @@ export const BookViewModal = ({ card }: { card: Card }) => {
           <Dialog.Title>{title}</Dialog.Title>
           <p className={styles.author}>{author}</p>
           <Dialog.Description className={styles.description}>{description}</Dialog.Description>
+          <Button>お気に入りから削除する</Button>
           <Dialog.Close>
             <button>閉じる</button>
           </Dialog.Close>
