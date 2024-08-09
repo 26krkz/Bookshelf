@@ -1,9 +1,6 @@
 import { Heading as RadixHeading } from "@radix-ui/themes";
 import styles from "./styles.module.css";
 
-type Size = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
-type As = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
-
 type Props = {
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
   size?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";

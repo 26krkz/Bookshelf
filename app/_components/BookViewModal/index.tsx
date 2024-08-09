@@ -1,4 +1,4 @@
-import { Card } from "@/app/types";
+import { Card } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";

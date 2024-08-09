@@ -1,7 +1,7 @@
 "use client";
 import Card from "../Card";
 import { ModalContainer } from "../ModalContainer";
-import type { Cards } from "@/app/types";
+import type { Cards } from "@/types";
 import styles from "./styles.module.css";
 import { BookViewmodal } from "../BookViewModal";
 
