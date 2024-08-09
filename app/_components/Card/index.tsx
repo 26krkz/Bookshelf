@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import type { Card } from "@/app/types";
+import type { Card } from "@/types";
 import Image from "next/image";
 import { Card as RadixCard } from "@radix-ui/themes";
 import styles from "./styles.module.css";

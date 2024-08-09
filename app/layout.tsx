@@ -4,6 +4,8 @@ import "./reset.css";
 import "@radix-ui/themes/styles.css";
 import Header from "./_components/Header";
 import { Theme } from "@radix-ui/themes";
+import { Fragment } from "react";
+import styles from "./styles.module.css";
 
 export const metadata: Metadata = {
   title: "Bookshelf",
@@ -20,7 +22,7 @@ export default function RootLayout({
       <body>
         <Theme>
           <Header />
-          {children}
+          <div className={styles.contentsWrapper}>{children}</div>
         </Theme>
       </body>
     </html>
