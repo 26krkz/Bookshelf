@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
-import Search from "./_components/Search";
-import CardList from "./_components/CardList";
-import { cardItems } from "./constants";
+import Search from "@/_components/Search";
+import CardList from "@/_components/CardList";
+import { cardItems } from "@/constants";
 
 export default function Home() {
   return (
