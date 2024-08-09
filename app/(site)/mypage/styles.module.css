@@ -1,0 +1,25 @@
+.heading {
+  margin-left: 200px;
+}
+
+.list {
+  width: 400px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.listItem {
+  padding: 15px 0 15px 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+}

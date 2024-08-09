@@ -10,12 +10,12 @@ export default function Header() {
         <Link className={styles.headerLink} href="/">
           <span className={styles.logoText}>Bookshelf</span>
         </Link>
-        <div className={styles.headerComponentRight}>
+        <Link className={styles.headerComponentRight} href="/mypage">
           <span className={styles.icon}>
             <PersonIcon className={styles.dummyIcon} />
           </span>
           <span className={styles.userName}>User Name</span>
-        </div>
+        </Link>
       </div>
     </header>
   );
