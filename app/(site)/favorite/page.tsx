@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 import { ModalContainer } from "@/_components/ModalContainer";
 import FavoriteCard from "./_components/FavoriteCard";
 import { FavoriteBookViewModal } from "./_components/FavoriteBookViewModal";
+import { AlertDialogContainer } from "@/_components/AlertDialogContainer";
+import AlertDialog from "@/_components/AlertDialog";
 
 export default function Page() {
   return (
@@ -20,6 +22,12 @@ export default function Page() {
             </li>
           );
         })}
+        {/* モーダルは出るようになったからモーダルの中で呼べるようにする
+        ドキュメントに例が書いてあったかも。確認
+         */}
+        <AlertDialogContainer content={() => <AlertDialog description="お気に入りから削除してもよろしいですか？" actionButtonText="削除する" />}>
+          <button>お気に入りから削除する</button>
+        </AlertDialogContainer>
       </ul>
     </>
   );
