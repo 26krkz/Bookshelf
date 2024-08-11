@@ -1,11 +1,11 @@
 "use client";
-import Card from "../Card";
+import BookCard from "../BookCard";
 import { ModalContainer } from "../ModalContainer";
-import type { Cards } from "@/types";
+import type { BookCards } from "@/types";
 import styles from "./styles.module.css";
 import { BookViewModal } from "../BookViewModal";
 
-export default function CardList({ cards }: { cards: Cards }) {
+export default function BookCardList({ cards }: { cards: BookCards }) {
   return (
     <>
       <ul className={styles.list}>
@@ -13,7 +13,7 @@ export default function CardList({ cards }: { cards: Cards }) {
           return (
             <li key={card.cardId}>
               <ModalContainer content={() => <BookViewModal card={card} />}>
-                <Card card={card} />
+                <BookCard card={card} />
               </ModalContainer>
             </li>
           );

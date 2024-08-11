@@ -7,6 +7,6 @@ export type BookInfo = {
   favorite: boolean;
 };
 
-export type Card = BookInfo;
+export type BookCard = BookInfo;
 
-export type Cards = Card[];
+export type BookCards = BookCard[];
