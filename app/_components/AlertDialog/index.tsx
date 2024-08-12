@@ -1,14 +1,14 @@
 import * as RadixAlertDialog from "@radix-ui/react-alert-dialog";
 import styles from "./styles.module.css";
 
-type Props = { description: string; actionButtonText: string };
+type Props = { title: string; description: string; actionButtonText: string };
 
-export default function AlertDialog({ description, actionButtonText }: Props) {
+export default function AlertDialog({ title, description, actionButtonText }: Props) {
   return (
     <RadixAlertDialog.Portal>
       <RadixAlertDialog.Overlay className={styles.AlertDialogOverlay} />
       <RadixAlertDialog.Content className={styles.AlertDialogContent}>
-        <RadixAlertDialog.Title>test</RadixAlertDialog.Title>
+        <RadixAlertDialog.Title>{title}</RadixAlertDialog.Title>
         <RadixAlertDialog.Description>{description}</RadixAlertDialog.Description>
         <div>
           <RadixAlertDialog.Cancel asChild>

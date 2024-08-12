@@ -7,6 +7,16 @@
   height: 210px;
 }
 
+.large {
+  width: 150px;
+  height: 210px;
+}
+
+.small {
+  width: 120px;
+  height: 170px;
+}
+
 .imageWrapper {
   position: relative;
   width: 100%;
