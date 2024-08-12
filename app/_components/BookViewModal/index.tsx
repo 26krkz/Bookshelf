@@ -1,9 +1,9 @@
-import { Card } from "@/types";
+import { BookCard } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
 
-export const BookViewmodal = ({ card }: { card: Card }) => {
+export const BookViewModal = ({ card }: { card: BookCard }) => {
   const { title, author, description } = card;
   return (
     <Dialog.Content>

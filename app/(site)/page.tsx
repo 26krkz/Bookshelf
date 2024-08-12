@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Search from "@/_components/Search";
-import CardList from "@/_components/CardList";
+import BookCardList from "@/_components/BookCardList";
 import { cardItems } from "@/constants";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <main className={styles.mainContents}>
       <div className={styles.contentsInner}>
         <Search />
-        <CardList cards={cardItems} />
+        <BookCardList cards={cardItems} />
       </div>
     </main>
   );

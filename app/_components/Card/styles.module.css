@@ -1,19 +1,29 @@
-.card {
-  padding: 0;
-}
-
 .cardContainer {
-  width: 150px;
-  height: 210px;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.imageWrapper {
+.title {
+  margin: 0 40px;
+  display: flex;
+  font-size: 20px;
+  width: 300px;
+}
+
+.deleteButton {
+  border: none;
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
   position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #ddd;
 }
 
-.image {
-  object-fit: contain;
+.clossIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
 }
