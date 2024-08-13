@@ -4,7 +4,8 @@ import Heading from "@/_components/Heading";
 
 const link = [
   { text: "ユーザーの設定を変更する", href: "#" },
-  { text: "本棚の編集", href: "/bookshelf" },
+  { text: "本棚の編集", href: "/bookshelfEdit" },
+  { text: "本棚を閲覧する", href: "/bookshelf/test" },
   { text: "お気に入りリスト", href: "/favorite" },
   { text: "退会する", href: "/withdrawal" },
 ];
