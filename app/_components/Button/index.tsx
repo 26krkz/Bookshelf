@@ -1,5 +1,11 @@
 import { Button as RadixButton } from "@radix-ui/themes";
 
-export default function Button({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <RadixButton className={className}>{children}</RadixButton>;
+type Props = { type: "button" | "submit" | "reset" | undefined; children: React.ReactNode; className?: string };
+
+export default function Button({ type, children, className }: Props) {
+  return (
+    <RadixButton type={type} className={className}>
+      {children}
+    </RadixButton>
+  );
 }

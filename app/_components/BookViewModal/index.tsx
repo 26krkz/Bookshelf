@@ -4,16 +4,16 @@ import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
 
 export const BookViewModal = ({ card }: { card: BookCard }) => {
-  const { title, author, description } = card;
+  const { title, authors, description, imageUrl } = card;
   return (
     <Dialog.Content>
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
-          <Image src="/dummy-image.jpeg" alt="本の画像" fill className={styles.image} />
+          <Image src={imageUrl} alt="本の画像" fill className={styles.image} />
         </div>
         <div className={styles.modalTextArea}>
           <Dialog.Title>{title}</Dialog.Title>
-          <p className={styles.author}>{author}</p>
+          <p className={styles.author}>{authors?.[0]}</p>
           <Dialog.Description className={styles.description}>{description}</Dialog.Description>
           <Dialog.Close>
             <button>閉じる</button>

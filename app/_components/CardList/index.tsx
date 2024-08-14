@@ -5,7 +5,7 @@ export default function CardList({ cards, listTitle }: { cards: BookCards; listT
   return (
     <ul>
       {cards.map((card) => {
-        return <Card key={card.cardId} card={card} listTitle={listTitle} />;
+        return <Card key={card.id} card={card} listTitle={listTitle} />;
       })}
     </ul>
   );
