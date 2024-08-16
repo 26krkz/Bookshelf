@@ -1,6 +1,5 @@
 "use server";
 import { BookInfo, GoogleBook, GoogleBooksInfo } from "@/types";
-import { revalidatePath } from "next/cache";
 
 // Google Books APIのキーを指定する（適宜、自分のAPIキーを設定してください）
 const API_KEY = "YOUR_API_KEY";
@@ -37,7 +36,7 @@ export default async function getSearchResult(_: BookInfo[], queryData: FormData
           id: book.id,
           title: book.volumeInfo.title,
           authors: book.volumeInfo.authors,
-          imageUrl: book.volumeInfo.imageLinks.thumbnail,
+          imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? "https://placehold.jp/150x210.png",
           description: book.volumeInfo.description,
         };
       });

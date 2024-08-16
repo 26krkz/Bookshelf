@@ -14,7 +14,7 @@ export default function BookCard({ card, cardSize = "large" }: { card: BookCard;
     <RadixCard className={styles.card}>
       <div className={clsx(styles.cardContainer, styles[cardSize])}>
         <div className={styles.imageWrapper}>
-          <Image src={imageUrl} fill alt="本の画像" className={styles.image} />
+          <Image src={imageUrl} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="本の画像" className={styles.image} />
         </div>
       </div>
     </RadixCard>

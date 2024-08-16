@@ -12,6 +12,7 @@ export default function BookCardList({ cards }: { cards: BookCards }) {
         {cards.map((card) => {
           return (
             <li key={card.id}>
+              {/* カードがNo Imageだった場合タイトルを表示する */}
               <ModalContainer content={() => <BookViewModal card={card} />}>
                 <BookCard card={card} />
               </ModalContainer>

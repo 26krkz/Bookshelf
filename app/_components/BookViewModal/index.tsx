@@ -8,8 +8,10 @@ export const BookViewModal = ({ card }: { card: BookCard }) => {
   return (
     <Dialog.Content>
       <div className={styles.container}>
-        <div className={styles.imageWrapper}>
-          <Image src={imageUrl} alt="本の画像" fill className={styles.image} />
+        <div>
+          <div className={styles.imageWrapper}>
+            <Image src={imageUrl} alt="本の画像" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className={styles.image} />
+          </div>
         </div>
         <div className={styles.modalTextArea}>
           <Dialog.Title>{title}</Dialog.Title>
