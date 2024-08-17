@@ -6,7 +6,7 @@ const API_KEY = "YOUR_API_KEY";
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
 const getBooks = async (query: string): Promise<GoogleBooksInfo> => {
-  return fetch(`${BASE_URL}?q=${encodeURIComponent(query)}`, { cache: "no-store" })
+  return fetch(`${BASE_URL}?maxResults=20&q=${encodeURIComponent(query)}`, { cache: "no-store" })
     .then(async (res: Response) => {
       const data = await res.json();
       if (!res.ok) {
@@ -36,7 +36,7 @@ export default async function getSearchResult(_: BookInfo[], queryData: FormData
           id: book.id,
           title: book.volumeInfo.title,
           authors: book.volumeInfo.authors,
-          imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? "https://placehold.jp/150x210.png",
+          imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? `https://placehold.jp/150x210.png?text=${book.volumeInfo.title}`,
           description: book.volumeInfo.description,
         };
       });
