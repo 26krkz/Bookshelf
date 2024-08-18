@@ -1,4 +1,3 @@
-"use client";
 import { ReactElement, ReactNode } from "react";
 import { AlertDialog } from "@radix-ui/themes";
 import styles from "./styles.module.css";
