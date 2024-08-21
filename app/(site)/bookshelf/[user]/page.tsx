@@ -1,12 +1,15 @@
+"use server";
 import BookCardList from "@/_components/BookCardList";
 import Heading from "@/_components/Heading";
-import { cardItems } from "@/constants";
+import getBookshelfList from "@/_services/getBookshelfList";
 
-type Params = { user: string };
-export default function Page({ params }: { params: Params }) {
+export default async function Page() {
+  const userId = "003";
+  const userName = "サンプルさん";
+  const cardItems = await getBookshelfList({ userId });
   return (
     <>
-      <Heading as="h2">{`${params.user}の本棚`}</Heading>
+      <Heading as="h2">{`${userName}の本棚`}</Heading>
       <BookCardList cards={cardItems} />
     </>
   );
