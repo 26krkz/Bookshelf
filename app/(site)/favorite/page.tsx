@@ -1,10 +1,11 @@
-"use client";
+"use server";
 import Heading from "@/_components/Heading";
-import { cardItems } from "@/constants";
 import CardList from "@/_components/CardList";
 import styles from "./styles.module.css";
+import getFavoriteList from "@/_services/getFavoriteList";
 
-export default function Page() {
+export default async function Page() {
+  const cardItems = await getFavoriteList({ userId: "003" });
   return (
     <>
       <Heading as="h2" className={styles.heading}>

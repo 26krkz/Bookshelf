@@ -1,9 +1,11 @@
-"use client";
+"use server";
 import CardList from "@/_components/CardList";
 import Heading from "@/_components/Heading";
-import { cardItems } from "@/constants";
+import getBookshelfList from "@/_services/getBookshelfList";
 
-export default function Page() {
+export default async function Page() {
+  const userId = "003";
+  const cardItems = await getBookshelfList({ userId });
   return (
     <>
       <Heading as="h2">本棚を編集</Heading>
