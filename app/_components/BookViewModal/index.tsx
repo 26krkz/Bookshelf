@@ -2,6 +2,7 @@ import { BookCard } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
+import FavoriteButtonContainer from "../FavoriteButtonContainer";
 
 export const BookViewModal = ({ card }: { card: BookCard }) => {
   const { title, authors, description, imageUrl } = card;
@@ -17,6 +18,7 @@ export const BookViewModal = ({ card }: { card: BookCard }) => {
           <Dialog.Title>{title}</Dialog.Title>
           <p className={styles.author}>{authors?.[0]}</p>
           <Dialog.Description className={styles.description}>{description}</Dialog.Description>
+          <FavoriteButtonContainer id="003" favorite={false} />
           <Dialog.Close>
             <button>閉じる</button>
           </Dialog.Close>
