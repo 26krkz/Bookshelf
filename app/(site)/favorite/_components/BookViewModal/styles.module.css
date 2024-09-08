@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 215px;
+  height: 300px;
+  background-color: #ddd;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.modalTextArea {
+  height: 100%;
+  margin-left: 20px;
+}
+
+.author {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.description {
+  margin-bottom: 30px;
+}

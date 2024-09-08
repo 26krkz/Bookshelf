@@ -1,0 +1,29 @@
+.cardContainer {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0 40px;
+  display: flex;
+  font-size: 20px;
+  width: 300px;
+}
+
+.deleteButton {
+  border: none;
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clossIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+}

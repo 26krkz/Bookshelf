@@ -1,7 +1,7 @@
 "use server";
-import CardList from "@/_components/CardList";
 import Heading from "@/_components/Heading";
 import getBookshelfList from "@/_services/getBookshelfList";
+import CardList from "./_components/CardList";
 
 export default async function Page() {
   const userId = "003";
@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <>
       <Heading as="h2">本棚を編集</Heading>
-      <CardList listTitle="本棚" cards={cardItems} />
+      <CardList cards={cardItems} />
     </>
   );
 }
