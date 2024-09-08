@@ -1,39 +1,23 @@
 "use client";
 
-import { useState } from "react";
 import FavoriteButton from "../FavoriteButton";
 import useModal from "@/_hooks/useModal";
 import AlertDialogModalComponent from "./AlertDialogModalComponent";
+import { useFormState } from "react-dom";
+import postFavorite from "@/_services/postFavorite";
 
 type Props = {
-  id: string;
+  bookId: string;
   favorite: boolean;
 };
 
-export default function FavoriteButtonContainer({ id = "003", favorite = false }: Props) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export default function FavoriteButtonContainer({ bookId, favorite = false }: Props) {
   const { openModal, closeModal, isOpen } = useModal(false);
-  const handleClickFavorite = async () => {
-    if (isSubmitting) return;
-    try {
-      const res = await fetch("", {
-        method: "POST",
-      });
-      if (res.ok) {
-        console.log("success");
-        openModal();
-      } else {
-        openModal();
-      }
-    } catch (err) {
-      openModal();
-    }
-    setIsSubmitting(false);
-  };
+  const [status, formAction] = useFormState(postFavorite(openModal), favorite);
 
   return (
     <>
-      <FavoriteButton status={favorite} onClick={handleClickFavorite} />
+      <FavoriteButton bookId={bookId} status={status} formAction={formAction} />
       {isOpen && <AlertDialogModalComponent closeModal={closeModal} isOpen={isOpen} />}
     </>
   );

@@ -1,19 +1,13 @@
-"use client";
 import styles from "./page.module.css";
-import Search from "@/_components/Search";
-import BookCardList from "@/_components/BookCardList";
-import { useFormState } from "react-dom";
-import getSearchResult from "@/_services/getSearchResult";
-import { BookCards } from "@/types";
+import SearchContainer from "@/_components/SearchContainer";
+import getFavoriteList from "@/_services/getFavoriteList";
 
-export default function Home() {
-  const [state, formAction] = useFormState(getSearchResult, []);
-  console.log(state);
+export default async function Home() {
+  const favoriteCardList = await getFavoriteList().then((books) => books.map((book) => book.id));
   return (
     <main className={styles.mainContents}>
       <div className={styles.contentsInner}>
-        <Search formAction={formAction} />
-        <BookCardList cards={state as BookCards} />
+        <SearchContainer favoriteCardList={favoriteCardList} />
       </div>
     </main>
   );

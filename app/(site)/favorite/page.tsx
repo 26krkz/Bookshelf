@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 import getFavoriteList from "@/_services/getFavoriteList";
 
 export default async function Page() {
-  const cardItems = await getFavoriteList({ userId: "003" });
+  const cardItems = await getFavoriteList();
   return (
     <>
       <Heading as="h2" className={styles.heading}>
