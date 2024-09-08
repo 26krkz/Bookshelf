@@ -14,7 +14,7 @@ export default function Card({ card }: { card: BookInfo }) {
         <BookCard card={card} cardSize="small" />
       </ModalContainer>
       <span className={styles.title}>{card.title}</span>
-      <AlertDialogContainer content={() => <AlertDialog title="本棚からの削除" description={`${card.title}を削除してもよろしいですか？`} actionButtonText="削除する" />}>
+      <AlertDialogContainer content={() => <AlertDialog title="本棚からの削除" description={`${card.title}を削除してもよろしいですか？`} actionButtonText="削除する" id={card.id} />}>
         <button className={styles.deleteButton}>
           <Cross1Icon className={styles.clossIcon} />
         </button>
