@@ -3,9 +3,10 @@ import { BookCard } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
+import AddBookshelfButtonContainer from "@/_components/AddBookshelfButtonContainer";
 
-export const BookViewModal = ({ card }: { card: BookCard }) => {
-  const { title, authors, description, imageUrl } = card;
+export const BookViewModal = ({ card, addBookshelf = false }: { card: BookCard; addBookshelf?: boolean }) => {
+  const { title, authors, description, imageUrl, id } = card;
   return (
     <Dialog.Content>
       <div className={styles.container}>
@@ -18,6 +19,7 @@ export const BookViewModal = ({ card }: { card: BookCard }) => {
           <Dialog.Title>{title}</Dialog.Title>
           <p className={styles.author}>{authors?.[0]}</p>
           <Dialog.Description className={styles.description}>{description}</Dialog.Description>
+          <AddBookshelfButtonContainer bookId={id} addBookshelf={addBookshelf} />
           <Dialog.Close>
             <button>閉じる</button>
           </Dialog.Close>

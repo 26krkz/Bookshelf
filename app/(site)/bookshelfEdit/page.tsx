@@ -5,7 +5,7 @@ import CardList from "./_components/CardList";
 
 export default async function Page() {
   const userId = "003";
-  const cardItems = await getBookshelfList({ userId });
+  const cardItems = await getBookshelfList();
   return (
     <>
       <Heading as="h2">本棚を編集</Heading>

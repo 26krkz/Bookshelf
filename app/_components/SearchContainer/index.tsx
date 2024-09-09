@@ -5,12 +5,12 @@ import Search from "../Search";
 import { useFormState } from "react-dom";
 import getSearchResult from "@/_services/getSearchResult";
 
-export default function SearchContainer({ favoriteCardList }: { favoriteCardList: string[] }) {
+export default function SearchContainer({ favoriteCardList, bookshelfList }: { favoriteCardList: string[]; bookshelfList: string[] }) {
   const [state, formAction] = useFormState(getSearchResult, []);
   return (
     <>
       <Search formAction={formAction} />
-      <BookCardList cards={state as BookCards} favoriteCardList={favoriteCardList} />
+      <BookCardList cards={state as BookCards} favoriteCardList={favoriteCardList} bookshelfList={bookshelfList} />
     </>
   );
 }
