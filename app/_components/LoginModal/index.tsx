@@ -4,7 +4,7 @@ import { VisuallyHidden } from "@radix-ui/themes";
 
 type Props = { isOpen: boolean; closeModal: () => void };
 
-export default function AlertDialogModalComponent({ isOpen, closeModal }: Props) {
+export default function LoginModal({ isOpen, closeModal }: Props) {
   return (
     <RadixAlertDialog.Root open={isOpen}>
       <RadixAlertDialog.Portal>

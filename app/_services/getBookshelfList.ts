@@ -20,7 +20,12 @@ const getBook = async (id: string): Promise<GoogleBook> => {
     });
 };
 
-export default async function getBookshelfList({ userId = "003" }: { userId: string }): Promise<BookInfo[]> {
+export default async function getBookshelfList(): Promise<BookInfo[]> {
+  // getSession
+  // if (!userId) {
+  //   return [];
+  // }
+  const userId = "003";
   try {
     const bookIds = await prisma.bookshelf
       .findMany({
