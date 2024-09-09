@@ -3,7 +3,7 @@ import { BookCard } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Dialog } from "@radix-ui/themes";
-import FavoriteButtonContainer from "../FavoriteButtonContainer";
+import FavoriteButtonContainer from "@/_components/FavoriteButtonContainer";
 
 export const BookViewModal = ({ card, favoriteStatus = false }: { card: BookCard; favoriteStatus?: boolean }) => {
   const { title, authors, description, imageUrl, id } = card;

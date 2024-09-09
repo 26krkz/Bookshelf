@@ -5,15 +5,16 @@ import type { BookCards } from "@/types";
 import styles from "./styles.module.css";
 import { BookViewModal } from "../BookViewModal";
 
-export default function BookCardList({ cards }: { cards: BookCards }) {
+export default function BookCardList({ cards, favoriteCardList }: { cards: BookCards; favoriteCardList: string[] }) {
   return (
     <>
       <ul className={styles.list}>
         {cards.map((card) => {
+          const favoriteStatus = favoriteCardList.includes(card.id);
           return (
             <li key={card.id}>
               {/* カードがNo Imageだった場合タイトルを表示する */}
-              <ModalContainer content={() => <BookViewModal card={card} />}>
+              <ModalContainer content={() => <BookViewModal card={card} favoriteStatus={favoriteStatus} />}>
                 <BookCard card={card} />
               </ModalContainer>
             </li>

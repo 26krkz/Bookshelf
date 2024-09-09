@@ -1,9 +1,10 @@
 import * as RadixAlertDialog from "@radix-ui/react-alert-dialog";
 import styles from "./styles.module.css";
+import DeleteButtonContainer from "../DeleteButtonContainer";
 
-type Props = { title: string; description: string; actionButtonText: string };
+type Props = { title: string; description: string; actionButtonText: string; id: string };
 
-export default function AlertDialog({ title, description, actionButtonText }: Props) {
+export default function AlertDialog({ title, description, actionButtonText, id }: Props) {
   return (
     <RadixAlertDialog.Portal>
       <RadixAlertDialog.Overlay className={styles.AlertDialogOverlay} />
@@ -15,7 +16,7 @@ export default function AlertDialog({ title, description, actionButtonText }: Pr
             <button>Cancel</button>
           </RadixAlertDialog.Cancel>
           <RadixAlertDialog.Action asChild>
-            <button>{actionButtonText}</button>
+            <DeleteButtonContainer bookId={id} />
           </RadixAlertDialog.Action>
         </div>
       </RadixAlertDialog.Content>

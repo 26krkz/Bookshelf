@@ -20,7 +20,12 @@ const getBook = async (id: string): Promise<GoogleBook> => {
     });
 };
 
-export default async function getFavoriteList({ userId = "003" }: { userId: string }): Promise<BookInfo[]> {
+export default async function getFavoriteList(): Promise<BookInfo[]> {
+  // getSession
+  // if (!userId) {
+  //   return [];
+  // }
+  const userId = "003";
   try {
     const bookIds = await prisma.favorite
       .findMany({
