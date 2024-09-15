@@ -1,6 +1,7 @@
 import * as RadixAlertDialog from "@radix-ui/react-alert-dialog";
 import styles from "./styles.module.css";
 import { VisuallyHidden } from "@radix-ui/themes";
+import LoginButton from "../LoginButton";
 
 type Props = { isOpen: boolean; closeModal: () => void };
 
@@ -19,7 +20,7 @@ export default function LoginModal({ isOpen, closeModal }: Props) {
               <button onClick={() => closeModal()}>Cancel</button>
             </RadixAlertDialog.Action>
             <RadixAlertDialog.Action asChild>
-              <button>ログインする</button>
+              <LoginButton />
             </RadixAlertDialog.Action>
           </div>
         </RadixAlertDialog.Content>

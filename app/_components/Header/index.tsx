@@ -9,7 +9,7 @@ import DropdownMenu from "../DropdownMenu";
 export default async function Header() {
   const session = await getServerSession();
   const profile = await prisma.user.findFirst({
-    where: { email: session?.user.email },
+    where: { id: session?.user.id },
   });
   return (
     <header className={styles.header}>

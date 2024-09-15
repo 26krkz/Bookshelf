@@ -1,8 +1,7 @@
-const deleteBookFromBookshelf = async ({ userId, bookId }: { userId: string; bookId: string }): Promise<{ message: string; status: number }> => {
+const deleteBookFromBookshelf = async ({ bookId }: { bookId: string }): Promise<{ message: string; status: number }> => {
   return fetch(`http://localhost:3000/api/books/${bookId}/bookshelf`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ userId }),
   })
     .then(async (res: Response) => {
       const data = await res.json();
@@ -22,11 +21,10 @@ export default function deleteFromBookshelf(openModal: () => void) {
   return async function deleteFromBookshelfAction(formData: FormData) {
     try {
       const bookId = formData.get("bookId");
-      const userId = "003";
       if (typeof bookId !== "string") {
         throw new Error("bookIdが正しくありません。");
       }
-      const res = await deleteBookFromBookshelf({ userId, bookId });
+      const res = await deleteBookFromBookshelf({ bookId });
       if (res.message === "Delete Suceeded") {
         openModal();
       } else {

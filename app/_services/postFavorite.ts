@@ -1,3 +1,5 @@
+import type { Session } from "next-auth";
+
 const postBookFavorite = async ({ userId, bookId, prevState }: { userId: string; bookId: string; prevState: boolean }): Promise<{ favorite: boolean }> => {
   return fetch(`http://localhost:3000/api/books/${bookId}/favorite`, {
     method: "POST",
@@ -18,17 +20,22 @@ const postBookFavorite = async ({ userId, bookId, prevState }: { userId: string;
       throw err;
     });
 };
-export default function postFavorite(openModal: () => void) {
+
+type Props = {
+  openModal: () => void;
+  data: Session | null;
+};
+
+export default function postFavorite({ openModal, data }: Props) {
   return async function postFavoriteAction(prevState: boolean, formData: FormData): Promise<boolean> {
-    const session = true;
-    if (!session) {
+    if (!data) {
       openModal();
       console.error("ログインできていません");
       return prevState;
     }
     try {
       const bookId = formData.get("bookId");
-      const userId = "003";
+      const userId = data.user.id;
       if (typeof bookId !== "string") {
         throw new Error("bookIdが正しくありません。");
       }
