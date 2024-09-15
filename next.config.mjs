@@ -20,6 +20,12 @@ const nextConfig = {
         port: "", // ポートが必要ない場合は空にする
         pathname: "/**", // マッチさせたいパスのパターン
       },
+      {
+        protocol: "https", // 'https'の場合も指定
+        hostname: "lh3.googleusercontent.com",
+        port: "", // ポートが必要ない場合は空にする
+        pathname: "/**", // マッチさせたいパスのパターン
+      },
     ],
   },
 };

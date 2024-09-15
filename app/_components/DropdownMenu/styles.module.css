@@ -1,0 +1,72 @@
+.userCntainer {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+}
+
+.userIcon {
+  border-radius: 9999px;
+  margin-right: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 9999px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.dummyIcon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.userName {
+  margin-right: 10px;
+}
+
+.dropdownMenuContent {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.dropdownMenuList {
+  padding: 0;
+  text-align: left;
+}
+
+.listItem {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.listItem:last-child {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+}
+
+.logoutButtonArea {
+  text-align: left;
+}
