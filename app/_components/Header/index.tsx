@@ -1,21 +1,23 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import { PersonIcon } from "@radix-ui/react-icons";
+import { getServerSession } from "@/lib/auth";
+import prisma from "../../../prisma";
+import LoginButton from "../LoginButton";
+import DropdownMenu from "../DropdownMenu";
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession();
+  const profile = await prisma.user.findFirst({
+    where: { email: session?.user.email },
+  });
   return (
     <header className={styles.header}>
       <div className={styles.headerComponent}>
         <Link className={styles.headerLink} href="/">
           <span className={styles.logoText}>Bookshelf</span>
         </Link>
-        <Link className={styles.headerComponentRight} href="/mypage">
-          <span className={styles.icon}>
-            <PersonIcon className={styles.dummyIcon} />
-          </span>
-          <span className={styles.userName}>User Name</span>
-        </Link>
+        {!!session ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
       </div>
     </header>
   );
