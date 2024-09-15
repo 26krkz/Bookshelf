@@ -1,5 +1,6 @@
 import { BookInfo, GoogleBook } from "@/types";
 import prisma from "../../prisma";
+import { getServerSession } from "@/lib/auth";
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -21,16 +22,15 @@ const getBook = async (id: string): Promise<GoogleBook> => {
 };
 
 export default async function getBookshelfList(): Promise<BookInfo[]> {
-  // getSession
-  // if (!userId) {
-  //   return [];
-  // }
-  const userId = "003";
+  const session = await getServerSession();
+  if (!session) {
+    return [];
+  }
   try {
     const bookIds = await prisma.bookshelf
       .findMany({
         where: {
-          userId: userId,
+          userId: session.user.id,
         },
         select: {
           bookId: true,
@@ -55,7 +55,7 @@ export default async function getBookshelfList(): Promise<BookInfo[]> {
       });
       return result;
     } else {
-      console.log("No books found.");
+      console.log("No books found in getBookshelfList.");
       return [];
     }
   } catch (error) {

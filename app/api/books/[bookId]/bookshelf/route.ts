@@ -2,14 +2,11 @@ import { NextRequest } from "next/server";
 import prisma from "../../../../../prisma";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { getServerSession } from "@/lib/auth";
 
 type PostRequestBody = {
   userId: string;
   prevState: boolean;
-};
-
-type DeleteRequestBody = {
-  userId: string;
 };
 
 export async function POST(req: NextRequest, { params }: { params: { bookId: string; prevState: boolean } }) {
@@ -41,10 +38,11 @@ export async function POST(req: NextRequest, { params }: { params: { bookId: str
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { bookId: string; prevState: boolean } }) {
+  const session = await getServerSession();
+  if (!session) throw new Error("Failed getting session");
   try {
-    const body: DeleteRequestBody = await req.json();
     await prisma.bookshelf.delete({
-      where: { userId_bookId: { bookId: params.bookId, userId: body.userId } },
+      where: { userId_bookId: { bookId: params.bookId, userId: session.user.id } },
     });
     revalidatePath("/bookshelfEdit");
     revalidatePath("/bookshelf/[user]", "page");

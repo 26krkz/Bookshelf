@@ -1,8 +1,7 @@
-const deleteBookFavorite = async ({ userId, bookId }: { userId: string; bookId: string }): Promise<{ message: string; status: number }> => {
+const deleteBookFavorite = async ({ bookId }: { bookId: string }): Promise<{ message: string; status: number }> => {
   return fetch(`http://localhost:3000/api/books/${bookId}/favorite`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ userId }),
   })
     .then(async (res: Response) => {
       const data = await res.json();
@@ -22,11 +21,10 @@ export default function deleteFavorite(openModal: () => void) {
   return async function deleteFavoriteAction(formData: FormData) {
     try {
       const bookId = formData.get("bookId");
-      const userId = "003";
       if (typeof bookId !== "string") {
         throw new Error("bookIdが正しくありません。");
       }
-      const res = await deleteBookFavorite({ userId, bookId });
+      const res = await deleteBookFavorite({ bookId });
       if (res.message === "Delete Suceeded") {
         openModal();
       } else {

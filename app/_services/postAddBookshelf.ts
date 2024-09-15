@@ -1,3 +1,5 @@
+import type { Session } from "next-auth";
+
 const postBookAddBookshelf = async ({ userId, bookId, prevState }: { userId: string; bookId: string; prevState: boolean }): Promise<{ addBookshelf: boolean }> => {
   return fetch(`http://localhost:3000/api/books/${bookId}/bookshelf`, {
     method: "POST",
@@ -18,17 +20,22 @@ const postBookAddBookshelf = async ({ userId, bookId, prevState }: { userId: str
       throw err;
     });
 };
-export default function postAddBookshelf(openModal: () => void) {
+
+type Props = {
+  openModal: () => void;
+  data: Session | null;
+};
+
+export default function postAddBookshelf({ openModal, data }: Props) {
   return async function postAddBookshelfAction(prevState: boolean, formData: FormData): Promise<boolean> {
-    const session = true;
-    if (!session) {
+    if (!data) {
       openModal();
       console.error("ログインできていません");
       return prevState;
     }
     try {
       const bookId = formData.get("bookId");
-      const userId = "003";
+      const userId = data.user.id;
       if (typeof bookId !== "string") {
         throw new Error("bookIdが正しくありません。");
       }
