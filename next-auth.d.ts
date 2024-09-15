@@ -10,3 +10,13 @@ declare module "next-auth" {
     };
   }
 }
+
+declare module "next-auth/jwt" {
+  interface DefaultJWT extends Record<string, unknown> {
+    id?: string;
+    name?: string | null;
+    email?: string | null;
+    picture?: string | null;
+    sub?: string;
+  }
+}
