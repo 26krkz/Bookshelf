@@ -17,7 +17,7 @@ export default async function Header() {
         <Link className={styles.headerLink} href="/">
           <span className={styles.logoText}>Bookshelf</span>
         </Link>
-        {!!session ? <DropdownMenu profile={profile} /> : <LoginButton />}
+        {!!session ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
       </div>
     </header>
   );
