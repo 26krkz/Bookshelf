@@ -15,7 +15,8 @@ export default async function Header() {
     <header className={styles.header}>
       <div className={styles.headerComponent}>
         <Link className={styles.headerLink} href="/">
-          <span className={styles.logoText}>Bookshelf</span>
+          <span className={styles.logoText}>ShelfShare</span>
+          <span className={styles.logoTextSmall}>- シェアする本棚 -</span>
         </Link>
         {!!session ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
       </div>

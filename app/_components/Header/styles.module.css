@@ -11,6 +11,8 @@
 .headerLink {
   text-decoration: none;
   color: #333;
+  display: flex;
+  align-items: baseline;
 }
 
 .headerComponent {
@@ -23,4 +25,9 @@
 
 .logoText {
   font-size: 35px;
+}
+
+.logoTextSmall {
+  font-size: 15px;
+  margin-left: 5px;
 }

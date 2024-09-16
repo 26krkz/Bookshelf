@@ -1,0 +1,65 @@
+.heading {
+  text-align: center;
+}
+
+.description {
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 780px;
+  margin: 30px auto;
+}
+
+.descriptionMain {
+  margin-bottom: 20px;
+}
+
+.descriptionList {
+  padding: 0 20px;
+}
+
+.descriptionListItem {
+  margin-bottom: 10px;
+  list-style: inside;
+  text-indent: -20px;
+}
+
+.descriptionListItem:last-child {
+  margin-bottom: 0;
+}
+
+.descriptionBold {
+  font-weight: bold;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cancelButton {
+  font-size: 18px;
+  color: #333;
+  padding: 20px 30px;
+}
+
+.withdrawalButton {
+  padding: 20px 30px;
+  font-size: 18px;
+  background-color: #ba0933;
+  color: #fff;
+}
+
+.withdrawalButton:disabled {
+  background-color: #ddd;
+}
