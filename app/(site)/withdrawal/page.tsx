@@ -5,6 +5,7 @@ import CheckboxWithLabel from "@/_components/CheckboxWithLabel";
 import Button from "@/_components/Button";
 import Link from "next/link";
 import { useState } from "react";
+import postWithdrawal from "@/_services/postWithdrawal";
 
 export default function Page() {
   const [status, setStatus] = useState(false);
@@ -36,7 +37,7 @@ export default function Page() {
         <Link className={styles.cancelButton} href="/">
           キャンセル
         </Link>
-        <form action="">
+        <form action={postWithdrawal}>
           <Button className={styles.withdrawalButton} type="submit" disabled={!status}>
             退会する
           </Button>
