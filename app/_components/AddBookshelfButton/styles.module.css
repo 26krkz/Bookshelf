@@ -1,4 +1,5 @@
 .addBookshelfButton {
-  width: 140px;
-  height: 35px;
+  padding: 20px 30px;
+  font-size: 18px;
+  background-color: #b56c12;
 }
