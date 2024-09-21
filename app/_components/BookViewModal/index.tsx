@@ -2,20 +2,14 @@
 import { BookCard } from "@/types";
 import styles from "./styles.module.css";
 import Image from "next/image";
-import { ChevronDownIcon, Dialog } from "@radix-ui/themes";
+import { Dialog } from "@radix-ui/themes";
 import FavoriteButtonContainer from "../FavoriteButtonContainer";
 import AddBookshelfButtonContainer from "../AddBookshelfButtonContainer";
 import Button from "../Button";
-import { ChevronUpIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { useState } from "react";
-import clsx from "clsx";
+import { Cross1Icon } from "@radix-ui/react-icons";
 
 export const BookViewModal = ({ card, favoriteStatus = false, addBookshelf = false }: { card: BookCard; favoriteStatus?: boolean; addBookshelf?: boolean }) => {
   const { title, authors, description, imageUrl, id } = card;
-  const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
   return (
     <Dialog.Content>
       <div className={styles.container}>
@@ -27,10 +21,7 @@ export const BookViewModal = ({ card, favoriteStatus = false, addBookshelf = fal
         <div className={styles.modalTextArea}>
           <Dialog.Title>{title}</Dialog.Title>
           <p className={styles.author}>{authors?.[0]}</p>
-          <Dialog.Description className={clsx(open ? styles.descriptionOpen : styles.description)} dangerouslySetInnerHTML={{ __html: description }} />
-          <Button type="button" onClick={handleClick} className={styles.chevronButton}>
-            {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
-          </Button>
+          <Dialog.Description className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
           <div className={styles.buttonArea}>
             <AddBookshelfButtonContainer bookId={id} addBookshelf={addBookshelf} />
             <FavoriteButtonContainer bookId={id} favorite={favoriteStatus} />
