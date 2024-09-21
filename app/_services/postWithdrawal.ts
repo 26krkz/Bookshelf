@@ -1,70 +1,43 @@
-import { Session } from "next-auth";
-
-const getCsrfToken = async (): Promise<{ csrfToken: string }> => {
-  return fetch("http://localhost:3000/api/auth/csrf", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then(async (res: Response) => {
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-      return data;
-    })
-    .catch((err: unknown) => {
-      if (err instanceof Error) {
-        console.warn(err.message);
-      }
-      throw err;
-    });
-};
-
-const getSession = async () => {
-  return fetch("http://localhost:3000/api/auth/session", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then(async (res: Response) => {
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-      return data;
-    })
-    .catch((err: unknown) => {
-      if (err instanceof Error) {
-        console.warn(err.message);
-      }
-      throw err;
-    });
-};
-
-const signOutSession = async ({ csrfToken }: { csrfToken: string }) => {
-  return fetch("http://localhost:3000/api/auth/signout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      csrfToken: csrfToken,
-    }),
-  });
-};
-
-const deleteAccountFromDB = async ({ session }: { session: Session }) => {
-  return fetch("http://localhost:3000/api/withdrawal", {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ session }),
-  });
-};
+"use server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import prisma from "../../prisma";
+import { Prisma } from "@prisma/client";
+import { getServerSession } from "@/lib/auth";
+import { cookies } from "next/headers";
 
 export default async function postWithdrawal() {
   try {
-    const { csrfToken } = await getCsrfToken();
-    const session: Session = await getSession();
-    await signOutSession({ csrfToken });
-    await deleteAccountFromDB({ session });
+    const session = await getServerSession();
+    const cookieStore = cookies();
+    if (!session) throw new Error("sessionの取得に失敗しました。");
+
+    await prisma.favorite.deleteMany({
+      where: { userId: session.user.id },
+    });
+    await prisma.bookshelf.deleteMany({
+      where: { userId: session.user.id },
+    });
+    await prisma.account.deleteMany({
+      where: { userId: session.user.id },
+    });
+    await prisma.user.delete({
+      where: { email: session.user.email },
+    });
+
+    cookieStore.set("next-auth.session-token", "", {
+      maxAge: 0,
+      path: "/",
+    });
   } catch (err) {
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      if (err.code === "P2002") {
+        console.error("ユーザーの削除に失敗しました");
+      }
+    }
     console.error(err);
   }
+  revalidatePath("/favorite");
+  revalidatePath("/bookshelf");
+  redirect("/");
 }
