@@ -26,7 +26,7 @@ export default function DropdownMenu({ name, image }: Props) {
   };
   return (
     <>
-      <RadixDropdownMenu.Root open={open}>
+      <RadixDropdownMenu.Root open={open} onOpenChange={handleClick}>
         <RadixDropdownMenu.Trigger asChild>
           <button type="button" className={styles.userCntainer} onClick={handleClick}>
             {image ? (
