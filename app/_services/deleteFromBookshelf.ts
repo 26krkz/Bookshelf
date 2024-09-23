@@ -1,5 +1,5 @@
 const deleteBookFromBookshelf = async ({ bookId }: { bookId: string }): Promise<{ message: string; status: number }> => {
-  return fetch(`http://localhost:3000/api/books/${bookId}/bookshelf`, {
+  return fetch(`${process.env.NEXT_PUBLIC_APP_DOMAIN}/api/books/${bookId}/bookshelf`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   })

@@ -1,7 +1,7 @@
 import type { Session } from "next-auth";
 
 const postBookFavorite = async ({ userId, bookId, prevState }: { userId: string; bookId: string; prevState: boolean }): Promise<{ favorite: boolean }> => {
-  return fetch(`http://localhost:3000/api/books/${bookId}/favorite`, {
+  return fetch(`${process.env.NEXT_PUBLIC_APP_DOMAIN}/api/books/${bookId}/favorite`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userId, prevState }),
