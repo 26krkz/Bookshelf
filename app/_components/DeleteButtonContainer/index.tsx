@@ -11,13 +11,14 @@ type Props = {
 };
 
 export default function DeleteButtonContainer({ bookId, bookListType }: Props) {
+  // router.refreshでstateをリセットしているからcloseModalは使っていない。
   const { openModal, closeModal, isOpen } = useModal(false);
   const formAction = bookListType === "お気に入りリスト" ? deleteFavorite : deleteFromBookshelf;
 
   return (
     <>
       <DeleteButton bookId={bookId} formAction={formAction(openModal)} />
-      {isOpen && <AlertDialogModalComponent closeModal={closeModal} isOpen={isOpen} />}
+      {isOpen && <AlertDialogModalComponent isOpen={isOpen} />}
     </>
   );
 }

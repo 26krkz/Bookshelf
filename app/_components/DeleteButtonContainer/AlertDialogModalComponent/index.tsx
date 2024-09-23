@@ -1,11 +1,24 @@
+"use client";
 import * as RadixAlertDialog from "@radix-ui/react-alert-dialog";
 import styles from "./styles.module.css";
 import { VisuallyHidden } from "@radix-ui/themes";
-import Button from "@/_components/Button";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-type Props = { isOpen: boolean; closeModal: () => void };
+type Props = { isOpen: boolean };
 
-export default function AlertDialogModalComponent({ isOpen, closeModal }: Props) {
+export default function AlertDialogModalComponent({ isOpen }: Props) {
+  const [pending, setPending] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setPending(true);
+      router.refresh();
+    }, 1000);
+    return () => clearTimeout(timerId);
+  }, [isOpen]);
+
   return (
     <RadixAlertDialog.Root open={isOpen}>
       <RadixAlertDialog.Portal>
@@ -14,20 +27,9 @@ export default function AlertDialogModalComponent({ isOpen, closeModal }: Props)
           <VisuallyHidden>
             <RadixAlertDialog.Title>タイトル</RadixAlertDialog.Title>
           </VisuallyHidden>
-          <RadixAlertDialog.Description>削除しました。</RadixAlertDialog.Description>
-          <div>
-            <RadixAlertDialog.Action asChild>
-              <Button
-                type="button"
-                onClick={() => {
-                  closeModal();
-                  window.location.reload();
-                }}
-              >
-                閉じる
-              </Button>
-            </RadixAlertDialog.Action>
-          </div>
+          <RadixAlertDialog.Description className={styles.description}>
+            {pending ? <Image className={styles.loadingIcon} src="/loading.gif" alt="" width={30} height={30} /> : "削除しました。"}
+          </RadixAlertDialog.Description>
         </RadixAlertDialog.Content>
       </RadixAlertDialog.Portal>
     </RadixAlertDialog.Root>
