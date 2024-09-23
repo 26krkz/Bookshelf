@@ -1,7 +1,7 @@
 import type { Session } from "next-auth";
 
 const postBookAddBookshelf = async ({ userId, bookId, prevState }: { userId: string; bookId: string; prevState: boolean }): Promise<{ addBookshelf: boolean }> => {
-  return fetch(`http://localhost:3000/api/books/${bookId}/bookshelf`, {
+  return fetch(`${process.env.NEXT_PUBLIC_APP_DOMAIN}/api/books/${bookId}/bookshelf`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userId, prevState }),
