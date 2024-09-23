@@ -6,7 +6,6 @@ import { Dialog } from "@radix-ui/themes";
 import FavoriteButtonContainer from "../FavoriteButtonContainer";
 import AddBookshelfButtonContainer from "../AddBookshelfButtonContainer";
 import Button from "../Button";
-import { Cross1Icon } from "@radix-ui/react-icons";
 
 export const BookViewModal = ({ card, favoriteStatus = false, addBookshelf = false }: { card: BookCard; favoriteStatus?: boolean; addBookshelf?: boolean }) => {
   const { title, authors, description, imageUrl, id } = card;
@@ -26,12 +25,12 @@ export const BookViewModal = ({ card, favoriteStatus = false, addBookshelf = fal
             <AddBookshelfButtonContainer bookId={id} addBookshelf={addBookshelf} />
             <FavoriteButtonContainer bookId={id} favorite={favoriteStatus} />
           </div>
+          <Dialog.Close>
+            <Button type="button" className={styles.closeButton}>
+              閉じる
+            </Button>
+          </Dialog.Close>
         </div>
-        <Dialog.Close>
-          <Button type="button" className={styles.closeButton}>
-            <Cross1Icon />
-          </Button>
-        </Dialog.Close>
       </div>
     </Dialog.Content>
   );
