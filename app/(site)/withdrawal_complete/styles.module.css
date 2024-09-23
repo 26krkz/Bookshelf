@@ -1,0 +1,28 @@
+.heading {
+  text-align: center;
+}
+
+.description {
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 480px;
+  margin: 30px auto;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+}
+
+.backToTopButton {
+  padding: 20px 30px;
+  background-color: #ddd;
+  text-align: center;
+}
+
+.backToTopLink {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}

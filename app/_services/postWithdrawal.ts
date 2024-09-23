@@ -39,5 +39,5 @@ export default async function postWithdrawal() {
   }
   revalidatePath("/favorite");
   revalidatePath("/bookshelf");
-  redirect("/");
+  redirect("/withdrawal_complete");
 }
