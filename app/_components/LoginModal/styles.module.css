@@ -14,11 +14,29 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
-  max-width: 500px;
+  max-width: 350px;
   max-height: 85vh;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .AlertDialogContent:focus {
   outline: none;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cancelButton {
+  padding: 20px 15px;
+  font-size: 16px;
+  background-color: #ddd;
+  color: #333;
 }

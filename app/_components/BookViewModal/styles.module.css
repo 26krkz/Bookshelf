@@ -26,21 +26,11 @@
 }
 
 .description {
-  margin-bottom: 10px;
-  height: 250px;
+  margin-bottom: 30px;
   overflow: hidden;
-}
-
-.descriptionOpen {
-  margin-bottom: 10px;
-}
-
-.chevronButton {
-  background-color: #ddd;
-  color: #333;
-  padding: 5px 30px;
-  display: block;
-  margin: 0 auto 30px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
 }
 
 .buttonArea {
@@ -51,12 +41,6 @@
 }
 
 .closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background-color: #ddd;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
   color: #333;
 }

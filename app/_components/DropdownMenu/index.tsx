@@ -1,3 +1,4 @@
+"use client";
 import * as RadixDropdownMenu from "@radix-ui/react-dropdown-menu";
 import { PersonIcon } from "@radix-ui/react-icons";
 import styles from "./styles.module.css";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDownIcon } from "@radix-ui/themes";
 import LogoutButton from "../LogoutButton";
+import { useState } from "react";
 
 type Props = {
   name?: string | null;
@@ -18,11 +20,15 @@ export default function DropdownMenu({ name, image }: Props) {
     { text: "本棚の編集", href: "/bookshelfEdit" },
     { text: "お気に入りリスト", href: "/favorite" },
   ];
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <>
-      <RadixDropdownMenu.Root>
+      <RadixDropdownMenu.Root open={open} onOpenChange={handleClick}>
         <RadixDropdownMenu.Trigger asChild>
-          <button type="button" className={styles.userCntainer}>
+          <button type="button" className={styles.userCntainer} onClick={handleClick}>
             {image ? (
               <Image className={styles.userIcon} src={image} height="30" width="30" alt="" />
             ) : (
@@ -40,7 +46,7 @@ export default function DropdownMenu({ name, image }: Props) {
               {link.map((li, index) => {
                 return (
                   <li key={index} className={styles.listItem}>
-                    <Link className={styles.link} href={li.href}>
+                    <Link className={styles.link} href={li.href} onClick={handleClick}>
                       {li.text}
                     </Link>
                   </li>

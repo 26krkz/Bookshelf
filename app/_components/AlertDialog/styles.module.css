@@ -1,3 +1,23 @@
+.deleteButton {
+  border: none;
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clossIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.AlertDialogContainer {
+  z-index: 9999;
+}
+
 .AlertDialogOverlay {
   background-color: var(--black-a9);
   position: fixed;
@@ -21,4 +41,26 @@
 }
 .AlertDialogContent:focus {
   outline: none;
+}
+
+.title {
+  margin: 10px 0;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dialogButtonArea {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cancelButton {
+  padding: 20px 15px;
+  font-size: 16px;
+  background-color: #ddd;
+  color: #333;
 }
