@@ -10,7 +10,7 @@ const Submit = () => {
 
   return (
     <Button type="submit" disabled={pending} className={styles.deleteButton}>
-      {pending ? <Image src="/loading.gif" alt="" width={30} height={30} /> : "削除する"}
+      {pending ? <Image src="/loading.gif" alt="" width={15} height={15} className={styles.loading} /> : "削除する"}
     </Button>
   );
 };

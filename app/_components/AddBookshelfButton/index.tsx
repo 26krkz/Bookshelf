@@ -10,7 +10,7 @@ const Submit = ({ status }: { status: boolean }) => {
 
   return (
     <Button type="submit" disabled={pending} className={styles.addBookshelfButton}>
-      {pending ? <Image src="/loading.gif" alt="" width={30} height={30} /> : status ? "本棚に追加済み" : "本棚に追加"}
+      {pending ? <Image src="/loading.gif" alt="" width={18} height={18} /> : status ? "本棚に追加済み" : "本棚に追加"}
     </Button>
   );
 };
