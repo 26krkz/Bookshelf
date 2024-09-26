@@ -1,0 +1,8 @@
+.baseButton {
+  font-weight: 500;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}

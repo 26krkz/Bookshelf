@@ -7,9 +7,10 @@
 }
 
 .searchButton {
-  padding: 25px 20px;
+  padding: 15px 20px;
   font-size: 16px;
   background-color: #2886fa;
+  color: #fff;
 }
 
 .input {

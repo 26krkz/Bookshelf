@@ -25,7 +25,7 @@ export const BookViewModal = ({ card, favoriteStatus = false }: { card: BookCard
         </div>
         <Dialog.Close>
           <Button type="button" className={styles.closeButton}>
-            <Cross1Icon />
+            <Cross1Icon className={styles.clossIcon} />
           </Button>
         </Dialog.Close>
       </div>

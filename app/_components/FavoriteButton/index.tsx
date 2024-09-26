@@ -10,7 +10,7 @@ const Submit = ({ status }: { status: boolean }) => {
 
   return (
     <Button type="submit" disabled={pending} className={styles.favoriteButton}>
-      {pending ? <Image src="/loading.gif" alt="" width={30} height={30} /> : status ? "お気に入り済み" : "お気に入りに追加"}
+      {pending ? <Image src="/loading.gif" alt="" width={18} height={18} /> : status ? "お気に入り済み" : "お気に入りに追加"}
     </Button>
   );
 };
