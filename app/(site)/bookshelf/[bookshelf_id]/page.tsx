@@ -5,6 +5,7 @@ import getBookshelfList from "@/_services/getBookshelfList";
 import getFavoriteList from "@/_services/getFavoriteList";
 import styles from "./styles.module.css";
 import getUserData from "@/_services/getUserData";
+import { getServerSession } from "@/lib/auth";
 
 type Params = {
   bookshelf_id: string;
@@ -14,8 +15,9 @@ export default async function Page({ params }: { params: Params }) {
   const bookshelfId = params.bookshelf_id;
   const user = await getUserData({ bookshelfId });
   const cardItems = await getBookshelfList({ bookshelfId });
-  const favoriteCardList = await getFavoriteList().then((books) => books.map((book) => book.id));
-  const bookshelfList = await getBookshelfList().then((books) => books.map((book) => book.id));
+  const session = await getServerSession();
+  const favoriteCardList = !!session ? await getFavoriteList().then((books) => books.map((book) => book.id)) : [];
+  const bookshelfList = !!session ? await getBookshelfList().then((books) => books.map((book) => book.id)) : [];
   // TODO: user page用のBookCardListを作る
   return (
     <>
