@@ -11,6 +11,7 @@ export default async function Header() {
   const profile = await prisma.user.findFirst({
     where: { id: session?.user.id },
   });
+  console.log("#####session#####", session);
   return (
     <header className={styles.header}>
       <div className={styles.headerComponent}>
