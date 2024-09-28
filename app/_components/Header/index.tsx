@@ -11,7 +11,6 @@ export default async function Header() {
   const profile = await prisma.user.findFirst({
     where: { id: session?.user.id },
   });
-  console.log("#####session#####", session);
   return (
     <header className={styles.header}>
       <div className={styles.headerComponent}>
@@ -19,7 +18,7 @@ export default async function Header() {
           <span className={styles.logoText}>ShelfShare</span>
           <span className={styles.logoTextSmall}>- シェアする本棚 -</span>
         </Link>
-        {!!session ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
+        {!!session && !!profile ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
       </div>
     </header>
   );
