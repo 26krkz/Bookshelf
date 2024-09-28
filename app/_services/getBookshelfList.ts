@@ -21,16 +21,26 @@ const getBook = async (id: string): Promise<GoogleBook> => {
     });
 };
 
-export default async function getBookshelfList(): Promise<BookInfo[]> {
-  const session = await getServerSession();
-  if (!session) {
-    return [];
+type Params = { bookshelfId?: string };
+
+export default async function getBookshelfList(params: Params = {}): Promise<BookInfo[]> {
+  const bookshelfId = params?.bookshelfId;
+  let userId;
+  if (bookshelfId) {
+    const user = await prisma.user.findFirst({
+      where: { bookshelf_id: bookshelfId },
+    });
+    userId = user?.id;
+  } else {
+    const session = await getServerSession();
+    userId = session?.user.id;
   }
+
   try {
     const bookIds = await prisma.bookshelf
       .findMany({
         where: {
-          userId: session.user.id,
+          userId,
         },
         select: {
           bookId: true,
