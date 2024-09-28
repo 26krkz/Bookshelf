@@ -18,7 +18,16 @@ export default async function Header() {
           <span className={styles.logoText}>ShelfShare</span>
           <span className={styles.logoTextSmall}>- シェアする本棚 -</span>
         </Link>
-        {!!session && !!profile ? <DropdownMenu image={profile?.image} name={profile?.name} /> : <LoginButton />}
+        {!!session && !!profile ? (
+          <DropdownMenu image={profile?.image} name={profile?.name} bookshelfId={profile?.bookshelf_id} />
+        ) : (
+          <div>
+            <Link href="/how_to_use" className={styles.howToUseLink}>
+              アプリの使いかた
+            </Link>
+            <LoginButton />
+          </div>
+        )}
       </div>
     </header>
   );
