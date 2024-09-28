@@ -11,12 +11,14 @@ import { useState } from "react";
 type Props = {
   name?: string | null;
   image?: string | null;
+  bookshelfId?: string | null;
 };
 
-export default function DropdownMenu({ name, image }: Props) {
+export default function DropdownMenu({ name, image, bookshelfId }: Props) {
   const link = [
+    { text: "アプリの使いかた", href: "/how_to_use" },
     { text: "マイページ", href: "/mypage" },
-    { text: "本棚を閲覧する", href: `/bookshelf/${name}` },
+    { text: "本棚を閲覧する", href: `/bookshelf/${bookshelfId}` },
     { text: "本棚の編集", href: "/bookshelfEdit" },
     { text: "お気に入りリスト", href: "/favorite" },
   ];

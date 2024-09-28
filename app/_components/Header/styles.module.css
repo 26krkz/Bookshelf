@@ -31,3 +31,10 @@
   font-size: 15px;
   margin-left: 5px;
 }
+
+.howToUseLink {
+  margin-right: 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
+}
